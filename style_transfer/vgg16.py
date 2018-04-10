@@ -23,7 +23,7 @@
 
 import numpy as np
 import tensorflow as tf
-import scripts.download as download
+import download as download
 import os
 
 ########################################################################

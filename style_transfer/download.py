@@ -18,7 +18,7 @@
 
 import sys
 import os
-import urllib.request
+import urllib
 import tarfile
 import zipfile
 

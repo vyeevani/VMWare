@@ -1,4 +1,5 @@
-import scripts.vgg16 as vgg16
+from __future__ import print_function
+import vgg16 as vgg16
 import argparse
 import PIL.Image
 import numpy as np
