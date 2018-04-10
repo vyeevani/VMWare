@@ -3,7 +3,6 @@ import vgg16 as vgg16
 import argparse
 import PIL.Image
 import numpy as np
-import matplotlib.pyplot as plt
 import tensorflow as tf
 
 parser = argparse.ArgumentParser(description='Neural style transfer with Keras.')
@@ -36,53 +35,6 @@ def save_image(image, filename):
 
     with open(filename, 'wb') as file:
         PIL.Image.fromarray(image).save(file, 'jpeg')
-
-def plot_image_big(image):
-    image = np.clip(image, 0.0, 255.0)
-    image = image.astype(np.uint8)
-
-    PIL.Image.fromarray(image).show()
-
-def plot_image(content_image, style_image, mixed_image):
-    fig, axes = plt.subplots(1, 3, figsize=(10, 10))
-
-    # Adjust vertical spacing.
-    fig.subplots_adjust(hspace=0.1, wspace=0.1)
-
-    # Use interpolation to smooth pixels?
-    smooth = True
-
-    # Interpolation type.
-    if smooth:
-        interpolation = 'sinc'
-    else:
-        interpolation = 'nearest'
-
-    # Plot the content-image.
-    # Note that the pixel-values are normalized to
-    # the [0.0, 1.0] range by dividing with 255.
-    ax = axes.flat[0]
-    ax.imshow(content_image / 255.0, interpolation=interpolation)
-    ax.set_xlabel("Content")
-
-    # Plot the mixed-image.
-    ax = axes.flat[1]
-    ax.imshow(mixed_image / 255.0, interpolation=interpolation)
-    ax.set_xlabel("Mixed")
-
-    # Plot the style-image
-    ax = axes.flat[2]
-    ax.imshow(style_image / 255.0, interpolation=interpolation)
-    ax.set_xlabel("Style")
-
-    # Remove ticks from all the plots.
-    for ax in axes.flat:
-        ax.set_xticks([])
-        ax.set_yticks([])
-
-    # Ensure the plot is shown correctly with multiple plots
-    # in a single Notebook cell.
-    plt.show()
 
 def mean_squared_error(a, b):
     return tf.reduce_mean(tf.square(a - b))
@@ -366,14 +318,6 @@ def style_transfer(content_image, style_image,
             msg = "Weight Adj. for Content: {0:.2e}, Style: {1:.2e}, Denoise: {2:.2e}"
             print(msg.format(adj_content_val, adj_style_val, adj_denoise_val))
 
-            # Plot the content-, style- and mixed-images.
-            plot_image(content_image=content_image,
-                        style_image=style_image,
-                        mixed_image=mixed_image)
-
-    print()
-    print("Final image:")
-    plot_image_big(mixed_image)
 
     # Close the TensorFlow session to release its resources.
     session.close()
@@ -401,6 +345,8 @@ img = style_transfer(content_image=content_image,
                      weight_denoise=0.3,
                      num_iterations=60,
                      step_size=10.0)
+
+save_image(img, filename=result_image_path)
 
 
 
