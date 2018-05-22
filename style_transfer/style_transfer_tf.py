@@ -1,4 +1,4 @@
-from __future__ import print_function
+from __future__ import print_function, division
 import vgg16 as vgg16
 import argparse
 import PIL.Image
@@ -12,7 +12,10 @@ parser.add_argument('style_reference_image_path', metavar='ref', type=str,
                     help='Path to the style reference image.')
 parser.add_argument('result_image_path', metavar='res', type=str,
                     help='Path to the result image.')
-
+parser.add_argument('weight_content', metavar='res', type=int, 
+		    help='Max weight content')
+parser.add_argument('weight_style', metavar='res', type=int,
+		    help='Max style content')
 
 
 vgg16.maybe_download()
@@ -22,10 +25,10 @@ def load_image(filename, max_size=None):
 
     #Resize the image while retaining aspect ratio
     if (max_size is not None):
-        resize_factor = max_size/np.max(image.size)
-        size = np.array(image.size) * resize_factor
-        size = size.astype(int)
-        image = image.resize(size, PIL.Image.LANCZOS)
+	resize_factor = max_size/np.max(image.size)
+	size = np.array(image.size) * resize_factor
+	size = size.astype(int)
+	image = image.resize(size, PIL.Image.LANCZOS)
 
     return np.float32(image)
 
@@ -329,24 +332,32 @@ args = parser.parse_args()
 base_image_path = args.base_image_path
 style_reference_image_path = args.style_reference_image_path
 result_image_path = args.result_image_path
+weight_content_max = args.weight_content
+weight_style_max = args.weight_style
 
 content_image = load_image(base_image_path)
 style_image = load_image(style_reference_image_path, max_size=300)
 
 content_layer_ids = [4]
 style_layer_ids = list(range(13))
+for weight_content in range(weight_content_max + 1):
+	for weight_style in range(weight_style_max + 1):
+		print(".................................")
+		print("ITERATION: " + str(weight_content_max * weight_content + weight_style))
+		print("WEIGHT CONTENT: " + str(weight_content))
+		print("STYLE CONTENT: " + str(weight_style))
+		print(".................................") 
+		img = style_transfer(content_image=content_image,
+        			style_image=style_image,
+                		content_layer_ids=content_layer_ids,
+                     		style_layer_ids=style_layer_ids,
+                     		weight_content=weight_content,
+                     		weight_style=weight_style,
+                     		weight_denoise=0.3,
+                     		num_iterations=60,
+                     		step_size=10.0)
 
-img = style_transfer(content_image=content_image,
-                     style_image=style_image,
-                     content_layer_ids=content_layer_ids,
-                     style_layer_ids=style_layer_ids,
-                     weight_content=1.5,
-                     weight_style=10.0,
-                     weight_denoise=0.3,
-                     num_iterations=60,
-                     step_size=10.0)
-
-save_image(img, filename=result_image_path)
+		save_image(img, filename=result_image_path+"_wc:"+str(weight_content)+"_ws:"+str(weight_style)+".jpg")
 
 
 
