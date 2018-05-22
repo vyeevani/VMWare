@@ -3,3 +3,5 @@
 *.pb
 *.idea
 .DS_STORE
+.token
+.npy
