@@ -1,0 +1,5 @@
+*.tfmodel
+*.zip
+*.pb
+*.idea
+.DS_STORE
