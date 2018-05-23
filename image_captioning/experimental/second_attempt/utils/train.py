@@ -1,11 +1,16 @@
 import tensorflow as tf
 import numpy as np
-from tensorflow.contrib.keras.python.keras.preprocessing import sequence
+import os
+from keras.preprocessing import sequence
 from caption_generator import Caption_Generator
 from build_vocab import preProBuildWordVocab
+from get_data import get_data
 
 def train(learning_rate=0.001, continue_training=False, transfer=True):
-
+    annotation_path = './data/results_20130124.token'
+    feature_path = './data/feats.npy'
+    model_path = './models/tensorflow'
+    model_path_transfer = './data/feats.npy'
     ### Parameters ###
     dim_embed = 256
     dim_hidden = 256

@@ -1,11 +1,11 @@
 from utils.train import train
-from utils.build_vocab import get_data
+from utils.get_data import get_data
 
 model_path = './models/tensorflow'
 model_path_transfer = './models/tf_final'
 feature_path = './data/feats.npy'
 annotation_path = './data/results_20130124.token'
-
+print(get_data)
 feats, captions = get_data(annotation_path, feature_path)
 print(feats.shape)
 print(captions.shape)
