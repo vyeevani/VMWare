@@ -3,5 +3,8 @@
 *.pb
 *.idea
 .DS_STORE
-.token
-.npy
+*.token
+*.npy
+*.data-00000-of-00001
+*.index
+*.meta
