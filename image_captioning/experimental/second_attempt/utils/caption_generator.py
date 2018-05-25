@@ -25,7 +25,10 @@ class Caption_Generator():
         # declare the variables to go from an LSTM output to a word encoding output
         self.word_encoding = tf.Variable(tf.random_uniform([dim_hidden, n_words], -0.1, 0.1), name='word_encoding')
         # initialize this bias variable from the preProBuildWordVocab output
-        self.word_encoding_bias = tf.Variable(init_b, name='word_encoding_bias')
+        if init_b is not None:
+            self.word_encoding_bias = tf.Variable(init_b, name='word_encoding_bias')
+        else:
+            self.word_encoding_bias = tf.Variable(tf.zeros([n_words]), name='word_encoding_bias')
 
     def build_model(self):
         # declaring the placeholders for our extracted image feature vectors, our caption, and our mask
