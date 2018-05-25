@@ -79,3 +79,36 @@ class Caption_Generator():
 
             total_loss = total_loss / tf.reduce_sum(mask[:,1:])
             return total_loss, img,  caption_placeholder, mask
+    def build_generator(self, maxlen, batchsize=1):
+        #same setup as `build_model` function
+        img = tf.placeholder(tf.float32, [self.batch_size, self.dim_in])
+        image_embedding = tf.matmul(img, self.img_embedding) + self.img_embedding_bias
+        state = self.lstm.zero_state(batchsize,dtype=tf.float32)
+
+        #declare list to hold the words of our generated captions
+        all_words = []
+        with tf.variable_scope("RNN"):
+            # in the first iteration we have no previous word, so we directly pass in the image embedding
+            # and set the `previous_word` to the embedding of the start token ([0]) for the future iterations
+            output, state = self.lstm(image_embedding, state)
+            previous_word = tf.nn.embedding_lookup(self.word_embedding, [0]) + self.embedding_bias
+
+            for i in range(maxlen):
+                tf.get_variable_scope().reuse_variables()
+
+                out, state = self.lstm(previous_word, state)
+
+
+                # get a get maximum probability word and it's encoding from the output of the LSTM
+                logit = tf.matmul(out, self.word_encoding) + self.word_encoding_bias
+                best_word = tf.argmax(logit, 1)
+
+                with tf.device("/cpu:0"):
+                    # get the embedding of the best_word to use as input to the next iteration of our LSTM
+                    previous_word = tf.nn.embedding_lookup(self.word_embedding, best_word)
+
+                previous_word += self.embedding_bias
+
+                all_words.append(best_word)
+
+        return img, all_words
