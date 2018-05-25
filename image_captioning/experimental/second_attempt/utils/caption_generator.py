@@ -1,6 +1,6 @@
 import tensorflow as tf
 class Caption_Generator():
-    def __init__(self, dim_in, dim_embed, dim_hidden, batch_size, n_lstm_steps, n_words, init_b):
+    def __init__(self, dim_in, dim_embed, dim_hidden, batch_size, n_lstm_steps, n_words, init_b=None):
 
         self.dim_in = dim_in
         self.dim_embed = dim_embed
