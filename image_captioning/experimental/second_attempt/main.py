@@ -1,12 +1,13 @@
 import os
 import tensorflow as tf
-import numpy as tf
+import numpy as np
+from utils.caption_generator import Caption_Generator
 
 model_path = './models/tensorflow'
 vgg_path = './data/vgg16-20160129.tfmodel'
-image_paths = ['./data/images/img1', './data/image/img2']
+image_paths = ['./data/images/img1.jpg']
 
-dim_embeddim_emb  = 256
+dim_embed = 256
 dim_hidden = 256
 dim_in = 4096
 batch_size = 1
@@ -17,6 +18,8 @@ n_epochs = 25
 if not os.path.exists('data/ixtoword.npy'):
     print ('You must run 1. O\'reilly Training.ipynb first.')
 else:
+    print(tf)
+    print("Checking the reset_default_graph()")
     tf.reset_default_graph()
     with open(vgg_path,'rb') as f:
         fileContent = f.read()
