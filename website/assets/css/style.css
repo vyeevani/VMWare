@@ -1,0 +1,66 @@
+h1 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+h2 {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+p {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+a {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    background-color: white;
+    border-width: 0 0 1px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: black;
+}
+
+.navbar-default .navbar-brand {
+    color: black;
+}
+
+.landing-screen img {
+    margin-top: 51px;
+    width: 100%;
+    height: auto;
+}
+
+.landing-screen h1 {
+    text-align: center;
+    display: block;
+}
+
+.landing-screen p {
+    text-align: center;
+    display: block;
+    background-color: e7e7e7;
+}
+
+.section h1 {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 30px;
+}
+
+.section h2 {
+    margin-top:20px;
+    margin-left: 20px;
+    margin-right;
+    font-size: 15px;
+}
+
+.section p {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 20px;
+}
