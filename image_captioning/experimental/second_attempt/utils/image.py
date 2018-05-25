@@ -1,5 +1,5 @@
 import cv2
-import numpy as tf
+import numpy as np
 
 def read_image(path):
 

@@ -2,10 +2,11 @@ import os
 import tensorflow as tf
 import numpy as np
 from utils.caption_generator import Caption_Generator
+from utils.test import test
 
 model_path = './models/tensorflow'
 vgg_path = './data/vgg16-20160129.tfmodel'
-image_paths = ['./data/images/img1.jpg']
+image_path = './data/images/img1.jpg'
 
 dim_embed = 256
 dim_hidden = 256
@@ -37,5 +38,8 @@ else:
     caption_generator = Caption_Generator(dim_in, dim_hidden, dim_embed, batch_size, maxlen+2, n_words)
     graph = tf.get_default_graph()
     image, generated_words = caption_generator.build_generator(maxlen=maxlen)
-    for image_path in image_paths:
-        test(sess,image,generated_words,ixtoword, image_path)
+    print("Caption from Image")
+    print(test(sess, image, generated_words, ixtoword, image_path, graph, images))
+    
+    #for image_path in image_paths:
+        #test(sess,image,generated_words,ixtoword, image_path, graph, images)

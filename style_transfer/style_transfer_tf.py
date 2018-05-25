@@ -6,15 +6,15 @@ import numpy as np
 import tensorflow as tf
 
 parser = argparse.ArgumentParser(description='Neural style transfer with Keras.')
-parser.add_argument('base_image_path', metavar='base', type=str,
+parser.add_argument('base_image_path', metavar='base image path', type=str,
                     help='Path to the image to transform.')
-parser.add_argument('style_reference_image_path', metavar='ref', type=str,
+parser.add_argument('style_reference_image_path', metavar='reference image path', type=str,
                     help='Path to the style reference image.')
-parser.add_argument('result_image_path', metavar='res', type=str,
+parser.add_argument('result_image_path', metavar='result image path', type=str,
                     help='Path to the result image.')
-parser.add_argument('weight_content', metavar='res', type=int, 
+parser.add_argument('weight_content', metavar='weight content max', type=int, 
 		    help='Max weight content')
-parser.add_argument('weight_style', metavar='res', type=int,
+parser.add_argument('weight_style', metavar='weight style max', type=int,
 		    help='Max style content')
 
 

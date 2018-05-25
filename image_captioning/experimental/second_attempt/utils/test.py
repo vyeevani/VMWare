@@ -1,7 +1,10 @@
 import tensorflow as tf
 import numpy as np
+from image import read_image
 
-def test(sess,image,generated_words,ixtoword,test_image_path=0): # Naive greedy search
+model_path = "./models/tensorflow"
+
+def test(sess,image,generated_words,ixtoword,test_image_path, graph, images): # Naive greedy search
     feat = read_image(test_image_path)
     fc7 = sess.run(graph.get_tensor_by_name("import/Relu_1:0"), feed_dict={images:feat})
 
@@ -21,4 +24,4 @@ def test(sess,image,generated_words,ixtoword,test_image_path=0): # Naive greedy 
 
     generated_words = generated_words[:punctuation]
     generated_sentence = ' '.join(generated_words)
-    print(generated_sentence)
+    return(generated_sentence)
