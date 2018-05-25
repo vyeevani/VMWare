@@ -17,7 +17,7 @@ a {
 .navbar-fixed-top {
     top: 0;
     background-color: white;
-    border-width: 0 0 1px;
+    box-shadow: 5px 5px 10px #5A9CB6;
 }
 
 .navbar-default .navbar-nav>li>a {
