@@ -64,3 +64,10 @@ a {
     margin-right: 40px;
     font-size: 20px;
 }
+
+.section img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
