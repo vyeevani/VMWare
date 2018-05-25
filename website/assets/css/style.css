@@ -45,6 +45,14 @@ a {
     background-color: e7e7e7;
 }
 
+.section {
+    margin-bottom: 100px;
+}
+
+.section input {
+    width: 100%;
+}
+
 .section h1 {
     margin-top: 40px;
     margin-left: 20px;
@@ -68,6 +76,25 @@ a {
 .section img {
     width: 50%;
     height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+path {
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+svg {
     display: block;
     margin: 0 auto;
 }
