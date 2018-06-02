@@ -22,9 +22,8 @@ server = tf.train.Server(cluster, job_name=job_name, task_index=task_id)
 if job_name == "ps":
     server.join()
 
-device_function = tf.train.replica_device_setter(worker_device="/job:worker/tast:" + str(task_id))
-
 else:
+    device_function = tf.train.replica_device_setter(worker_device="/job:worker/task:" + str(task_id))
     with tf.device(device_function):
         try:
             train(.001,False,False, server=server, is_chief=(task_id == 0), device_function=device_function) #train from scratch
