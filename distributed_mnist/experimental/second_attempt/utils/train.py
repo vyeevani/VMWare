@@ -21,6 +21,7 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
         n_epochs = 150
 
         tf.reset_default_graph()
+	global_step = tf.contrib.framework.get_or_create_global_step()
         hooks = [tf.train.StopAtStepHook(n_epochs)]
         with tf.train.MonitoredTrainingSession(server.target, is_chief=is_chief, checkpoint_dir="models/tmp/train_logs", hooks=hooks) as sess:
             feats, captions = get_data(annotation_path, feature_path)
@@ -40,7 +41,7 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
             global_step=tf.Variable(0,trainable=False)
             learning_rate = tf.train.exponential_decay(learning_rate, global_step,
                                                int(len(index)/batch_size), 0.95)
-            train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss)
+            train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step=global_step)
             tf.global_variables_initializer().run()
 
             if continue_training:
