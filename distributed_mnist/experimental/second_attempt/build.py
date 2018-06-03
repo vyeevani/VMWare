@@ -5,7 +5,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Distributed training of Image Captioning Network')
 parser.add_argument('job_name', metavar='type of machine', type=str,
                     help='Type of Machine, either Parameter Server or Worker Server.')
-parser.add_argument('task_id', metavar='specific task', type=str,
+parser.add_argument('task_id', metavar='specific task', type=int,
                     help='ID of the task that this particular machine needs to carry out.')
 
 args = parser.parse_args()
@@ -13,8 +13,8 @@ job_name = args.job_name
 task_id = args.task_id
 
 cluster = tf.train.ClusterSpec({
-    "ps" : "sc2tf01:22",
-    "worker" : ["sc2tf02:22", "sc2tf03:22", "sc2tf0:22"]
+    "ps" : ["sc2tf01:8000"],
+    "worker" : ["sc2tf02:8000", "sc2tf03:8000", "sc2tf0:8000"]
 })
 
 server = tf.train.Server(cluster, job_name=job_name, task_index=task_id)
