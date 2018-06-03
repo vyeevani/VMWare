@@ -42,7 +42,7 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
             learning_rate = tf.train.exponential_decay(learning_rate, global_step,
                                                int(len(index)/batch_size), 0.95)
             train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step=global_step)
-            tf.global_variables_initializer().run()
+            sess.run(tf.global_variables_initializer())
 
             if continue_training:
                 if not transfer:
