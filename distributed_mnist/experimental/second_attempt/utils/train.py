@@ -46,7 +46,7 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
 
         with tf.train.MonitoredTrainingSession(server.target, is_chief=is_chief, checkpoint_dir="models/tmp/train_logs",
                                        hooks=hooks) as sess:
-            sess.run(tf.global_variables_initializer())
+            #sess.run(tf.global_variables_initializer())
 
             if continue_training:
                 if not transfer:
