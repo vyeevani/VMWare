@@ -21,27 +21,31 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
         n_epochs = 150
 
         tf.reset_default_graph()
-	global_step = tf.contrib.framework.get_or_create_global_step()
+        global_step = tf.train.get_or_create_global_step()
         hooks = [tf.train.StopAtStepHook(n_epochs)]
-        with tf.train.MonitoredTrainingSession(server.target, is_chief=is_chief, checkpoint_dir="models/tmp/train_logs", hooks=hooks) as sess:
-            feats, captions = get_data(annotation_path, feature_path)
-            wordtoix, ixtoword, init_b = preProBuildWordVocab(captions)
 
-            np.save('data/ixtoword', ixtoword)
+        feats, captions = get_data(annotation_path, feature_path)
+        wordtoix, ixtoword, init_b = preProBuildWordVocab(captions)
 
-            index = (np.arange(len(feats)).astype(int))
-            np.random.shuffle(index)
-            n_words = len(wordtoix)
-            maxlen = np.max( [x for x in map(lambda x: len(x.split(' ')), captions) ] )
-            caption_generator = Caption_Generator(dim_in, dim_hidden, dim_embed, batch_size, maxlen+2, n_words, device_function,init_b)
+        np.save('data/ixtoword', ixtoword)
 
-            loss, image, sentence, mask = caption_generator.build_model(device_function)
+        index = (np.arange(len(feats)).astype(int))
+        np.random.shuffle(index)
+        n_words = len(wordtoix)
+        maxlen = np.max( [x for x in map(lambda x: len(x.split(' ')), captions) ] )
+        caption_generator = Caption_Generator(dim_in, dim_hidden, dim_embed, batch_size, maxlen+2, n_words, device_function,init_b)
 
-            saver = tf.train.Saver(max_to_keep=100)
-            global_step=tf.Variable(0,trainable=False)
-            learning_rate = tf.train.exponential_decay(learning_rate, global_step,
-                                               int(len(index)/batch_size), 0.95)
-            train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step=global_step)
+        loss, image, sentence, mask = caption_generator.build_model(device_function)
+
+        saver = tf.train.Saver(max_to_keep=100)
+        global_step=tf.Variable(0,trainable=False)
+        learning_rate = tf.train.exponential_decay(learning_rate, global_step,
+                                           int(len(index)/batch_size), 0.95)
+        train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step=global_step)
+
+
+        with tf.train.MonitoredTrainingSession(server.target, is_chief=is_chief, checkpoint_dir="models/tmp/train_logs",
+                                       hooks=hooks) as sess:
             sess.run(tf.global_variables_initializer())
 
             if continue_training:
