@@ -33,9 +33,9 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
         np.random.shuffle(index)
         n_words = len(wordtoix)
         maxlen = np.max( [x for x in map(lambda x: len(x.split(' ')), captions) ] )
-        caption_generator = Caption_Generator(dim_in, dim_hidden, dim_embed, batch_size, maxlen+2, n_words, device_function,init_b)
+        caption_generator = Caption_Generator(dim_in, dim_hidden, dim_embed, batch_size, maxlen+2, n_words, device_function ,init_b)
 
-        loss, image, sentence, mask = caption_generator.build_model(device_function)
+        loss, image, sentence, mask = caption_generator.build_model()
 
         saver = tf.train.Saver(max_to_keep=100)
         global_step=tf.Variable(0,trainable=False)

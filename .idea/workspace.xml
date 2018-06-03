@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="728fea55-300e-4d42-94d4-0413d6385afa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_mnist/experimental/second_attempt/utils/train.py" afterPath="$PROJECT_DIR$/distributed_mnist/experimental/second_attempt/utils/train.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +31,21 @@
       <file leaf-file-name="train.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_mnist/experimental/second_attempt/utils/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="34" column="72" lean-forward="true" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
+            <state relative-caret-position="276">
+              <caret line="37" column="68" lean-forward="false" selection-start-line="37" selection-start-column="68" selection-end-line="37" selection-end-column="68" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="caption_generator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_mnist/experimental/second_attempt/utils/caption_generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,6 +104,32 @@
             <path>
               <item name="vmware" type="b2602c69:ProjectViewProjectNode" />
               <item name="vmware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vmware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vmware" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed_mnist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vmware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vmware" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed_mnist" type="462c0819:PsiDirectoryNode" />
+              <item name="experimental" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vmware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vmware" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed_mnist" type="462c0819:PsiDirectoryNode" />
+              <item name="experimental" type="462c0819:PsiDirectoryNode" />
+              <item name="second_attempt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vmware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vmware" type="462c0819:PsiDirectoryNode" />
+              <item name="distributed_mnist" type="462c0819:PsiDirectoryNode" />
+              <item name="experimental" type="462c0819:PsiDirectoryNode" />
+              <item name="second_attempt" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -420,14 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_mnist/experimental/second_attempt/utils/caption_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="33" lean-forward="false" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/style_transfer/style_transfer_tf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4875">
@@ -446,10 +473,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_mnist/experimental/second_attempt/utils/caption_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/distributed_mnist/experimental/second_attempt/utils/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="34" column="72" lean-forward="true" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
+        <state relative-caret-position="276">
+          <caret line="37" column="68" lean-forward="false" selection-start-line="37" selection-start-column="68" selection-end-line="37" selection-end-column="68" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
