@@ -81,4 +81,4 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
                     print("Current Cost: ", loss_value, "\t Epoch {}/{}".format(epoch, n_epochs), "\t Iter {}/{}".format(start,len(feats)))
                 print("Saving the model from epoch: ", epoch)
                 epoch += 1
-                saver.save(sess, os.path.join(model_path, 'model'), global_step=epoch)
+                #saver.save(sess, os.path.join(model_path, 'model'), global_step=epoch)
