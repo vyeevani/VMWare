@@ -14,7 +14,7 @@ task_id = args.task_id
 
 cluster = tf.train.ClusterSpec({
     "ps" : ["sc2tf01:8000"],
-    "worker" : ["sc2tf02:8000", "sc2tf03:8000", "sc2tf4:8000", "sc2tf5:8000"]
+    "worker" : ["sc2tf02:8000", "sc2tf03:8000", "sc2tf04:8000", "sc2tf05:8000"]
 })
 
 server = tf.train.Server(cluster, job_name=job_name, task_index=task_id)
