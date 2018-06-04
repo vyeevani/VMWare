@@ -43,8 +43,7 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
         train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step=global_step)
 
 
-        with tf.train.MonitoredTrainingSession(server.target, is_chief=is_chief, checkpoint_dir="models/tmp/train_logs",
-                                       hooks=hooks) as sess:
+        with tf.train.MonitoredTrainingSession(server.target, is_chief=is_chief, checkpoint_dir="models/tmp/train_logs", hooks=hooks) as sess:
             #sess.run(tf.global_variables_initializer())
 
             if continue_training:
@@ -80,4 +79,5 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
                     print("Current Cost: ", loss_value, "\t Epoch {}/{}".format(epoch, n_epochs), "\t Iter {}/{}".format(start,len(feats)))
                 print("Saving the model from epoch: ", epoch)
                 epoch += 1
-                #saver.save(sess, os.path.join(model_path, 'model'), global_step=epoch)
+                with tf.device("sc2tf01:8000"):
+                    saver.save(sess, os.path.join(model_path, 'model'), global_step=epoch)
