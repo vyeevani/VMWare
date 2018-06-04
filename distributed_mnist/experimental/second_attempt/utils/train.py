@@ -38,7 +38,6 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
         loss, image, sentence, mask = caption_generator.build_model()
 
         saver = tf.train.Saver(max_to_keep=100)
-        global_step=tf.Variable(0,trainable=False)
         learning_rate = tf.train.exponential_decay(learning_rate, global_step,
                                            int(len(index)/batch_size), 0.95)
         train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step=global_step)
