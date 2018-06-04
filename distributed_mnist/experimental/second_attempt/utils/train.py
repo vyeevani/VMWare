@@ -22,7 +22,7 @@ def train(learning_rate=0.001, continue_training=False, transfer=True, server=No
 
         tf.reset_default_graph()
         global_step = tf.train.get_or_create_global_step()
-        hooks = [tf.train.StopAtStepHook(n_epochs)]
+        hooks = [tf.train.StopAtStepHook(n_epochs * 158915)]
 
         feats, captions = get_data(annotation_path, feature_path)
         wordtoix, ixtoword, init_b = preProBuildWordVocab(captions)
