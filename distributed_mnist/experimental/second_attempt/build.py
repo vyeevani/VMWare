@@ -1,4 +1,5 @@
 from utils.train import train
+import time
 import tensorflow as tf
 import argparse
 
@@ -13,7 +14,7 @@ job_name = args.job_name
 task_id = args.task_id
 
 cluster = tf.train.ClusterSpec({
-    "ps" : ["sc2tf01:8000"],
+    "ps" : ["sc2tf01:8000", "sc2tf06:8000"],
     "worker" : ["sc2tf02:8000", "sc2tf03:8000", "sc2tf04:8000", "sc2tf05:8000"]
 })
 
@@ -23,10 +24,19 @@ if job_name == "ps":
     server.join()
 
 else:
+    start = time.time()
+    print("########################")
+    print("Time Started: " + str(start))
     device_function = tf.train.replica_device_setter(worker_device="/job:worker/task:" + str(task_id))
     with tf.device(device_function):
         try:
             train(.001,False,False, server=server, is_chief=(task_id == 0), device_function=device_function) #train from scratch
+            end = time.time()
+            elapsed = end - start
+            print("########################")
+            print("Time Started: " + str(start))
+            print("Time Ended: " + str(end))
+            print("Time Elapsed: " + str(end - start))
             #train(.001,True,True)    #continue training from pretrained weights @epoch500
             #train(.001,True,False)  #train from previously saved weights
         except KeyboardInterrupt:
