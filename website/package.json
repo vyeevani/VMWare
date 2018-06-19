@@ -1,5 +1,5 @@
 {
-  "name": "vmware ml results",
+  "name": "vmware_ml_results",
   "version": "1.0.0",
   "description": "Website containing the results of VLSS VMware contract",
   "main": "index.js",
