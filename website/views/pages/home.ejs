@@ -43,13 +43,25 @@
 
         <h2>Vineeth Yeevani</h2>
 
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
+        <p>The Exercise:</br></br>
+            Using the VMWare high performance computing servers, we sped up the time to train and test a network that took the artistic style of famous artists and “repainted” any photograph or picture with that style.
+Over time the difference is slowly reduced and an image is discernible. With VMWare’s high performance platform, we were able to greatly cut down on training time for the network and were able to generate large batches of images in much shorter periods of times.
+</br></br>The Data:</br></br>
+Our algorithm simply needs one content image and one style image and iteratively trains off that since it is built of off a pre-existing image recognition model.
+</br></br>The Algorithm:</br></br>
+Our architecture computes the difference between the generated image and image given for content as well as the difference between the image containing the style and the generated image. For each iteration it calculates both these differences and then learns iteratively how to minimize this difference.
+We trained the network for 50 epochs with 10000 individual images per epoch to maximum the output of the network.
+</br></br>The Results:</br></br>
+The speed that the VMWare cluster performed at was exceptional and far outpaced any machine that would be easily accessible to most. It generated nearly 10000 images in under 4 hours.
+        </p>
 
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
+        <img style="margin-bottom: 30px;" src="img/golden_gate.jpg">
 
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
+        <p style="margin-bottom: 30px; display: block; text-align: center;"> This is the image we will take the content from </p>
 
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
+        <img style="margin-bottom: 30px;" src="img/starry_night.jpg">
+
+        <p style="margin-bottom: 30px; display: block; text-align: center;"> This is the image we will take the style from </p>
 
         <div class="container" style="margin-bottom: 20px;">
             <div class="row">
@@ -62,7 +74,11 @@ Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendid
             </div>
         </div>
 
-        <img id="style_img" src="img/results_golden_gate/_wc:1_ws:10.jpg">
+
+
+        <img style="margin-bottom: 30px;" id="style_img" src="img/results_golden_gate/_wc:1_ws:10.jpg">
+
+        <p style="margin-bottom: 30px; display: block; text-align: center;"> This is the mixed image with the content </br>of the golden gate bridge and style of the starry night </p>
     </div>
 
     <div class="section" id="stock">
@@ -70,46 +86,39 @@ Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendid
 
         <h2>Anusha Mohan, Srividhya Shanker</h2>
 
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
+        <p></br>The Exercise:</br></br>
+Historical data for four months of the S&P 500 stocks is compiled. Every minute is collected and used for the learning exercise in stock prediction. The data until August 30th is used for the machine learning process and the algorithm is tuned to predict the values of the stock on August 31st.
 
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
+</br></br>Data:</br></br>
+The data was collected from historical archives available in Google Finance via API. The dataset contains approximately 42,000 minutes of data ranging from April 2017 to August 2017 on 500 stocks from the total S&P 500 index price.
 
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
+</br></br>Algorithm Used:</br></br>
+Our code creates variables that represent not only the network’s input and the network’s output but also weights and biases, that were initialized prior to model training. The model that we followed consists of 4 layers, with the first having 1024 neurons, the second having 512 neurons, followed by 256 and 128 neurons. Using activation functions, the hidden layers were transformed. The next layer was the output layer which we used to transpose the data. Lastly, we used a cost function to measure the deviation between the networks. The optimizer takes care of computations pertaining to weights and biases during training. After setting up the code, we used this model to continue training the network so that we can output predicted stock prices.
+</br></br>Results:</br></br>
+At the end all of all the iterations, our model outputs a final loss, with loss being defined as the mean squared error between the output of our model and expected output.
+        </p>
 
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
         <!-- Graph Controller -->
         <script src="js/graph.js"></script>
     </div>
 
     <div class="section" id="caption">
-        <h1>Image Captioning</h1>
-
-        <h2>Vineeth Yeevani</h2>
-
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
-
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
-
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
-
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
-        <img src="img/img1.jpg">
-        <p style="display: block; text-align: center;"> Output of running recognition on this image: <br> "A dog is running through the ."</p>
-    </div>
-
-    <div class="section" id="distributed">
         <h1>Distributed Learning</h1>
 
         <h2>Vineeth Yeevani</h2>
 
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
-
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
-
-        <p>Lorem ipsum dolor sit amet, reque omnes doctus quo no, sed eius conceptam an. Sea id meis saepe, pri in salutandi neglegentur, delenit dolorem patrioque in nam. Quas sonet an mel. Harum consetetur nam in.
-
-Tollit phaedrum vulputate ut nam, mel essent delenit lobortis id, idque splendide has ad. Quo et brute fugit mediocrem, mea solet quidam recusabo id. Eu vis sumo iracundia, omnium laoreet atomorum ad ius, iusto prompta ius an. Justo malorum ei duo, no per unum officiis, ius deserunt honestatis ut. Mazim fabellas vix ex.</p>
-
-        <!-- Training times -->
+        <p>
+            The Exercise:</br></br>
+We chose this particular machine learning task to demonstrate the superiority of multiple graphics card on the VMWare high performance server when compared to traditional CPU. For this task, we had to train a large captioning model that gave imputed images a caption based on what it understood in the scene.
+We trained the network for 150 epochs with 20000 individual training steps per epoch to maximum the predictive capability of the network. The network generated fairly accurate descriptions of what it had seen.
+</br></br>The Data:</br></br>
+We used data that was pulled from publicly labelled image sets to retrain our network that was originally trained to recognize images from the ImageNet dataset.
+</br></br>The Algorithm:</br></br>
+In this model, we used the power of distributed computing to train a very large network that won a Stanford competition know as the ImageNet challenge. We assigned separate three different physical computers to perform various individual tasks and pooled the results of those tasks on a single machine.
+</br></br>The Results:</br></br>
+After training, the model can take in any image and caption it with decently accurate captions that could pass for a human’s captioning. The network even handles images that challenge a human’s ability.
+        </p>
+        <img src="img/img1.jpg">
+        <p style="display: block; text-align: center;"> Output of running recognition on this image: <br> "A dog is running through the ."</p>
     </div>
 </body>
