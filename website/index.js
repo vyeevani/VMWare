@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const router = require("./routers/main.js");
 
 // CONSTANTS
-const hostname = '127.0.0.1';
 const port = process.env.PORT || 8080;
 
 // SETUP
@@ -18,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use("/", router);
 
 // START SERVER
-app.listen(port, hostname, () => {
+app.listen(port, () => {
     console.log("Server listening on port: " + port)
 });
 
