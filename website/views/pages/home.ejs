@@ -54,15 +54,24 @@ We trained the network for 50 epochs with 10000 individual images per epoch to m
 </br></br>The Results:</br></br>
 The speed that the VMWare cluster performed at was exceptional and far outpaced any machine that would be easily accessible to most. It generated nearly 10000 images in under 4 hours.
         </p>
-
-        <img style="margin-bottom: 30px;" src="img/golden_gate.jpg">
-
-        <p style="margin-bottom: 30px; display: block; text-align: center;"> This is the image we will take the content from </p>
-
-        <img style="margin-bottom: 30px;" src="img/starry_night.jpg">
-
-        <p style="margin-bottom: 30px; display: block; text-align: center;"> This is the image we will take the style from </p>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <img src="img/golden_gate.jpg">
+                </div>
+                <div class="col-xs-5">
+                    <img src="img/starry_night.jpg">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <p style="display: block; text-align: center;"> This is the image we will take the content from </p>
+                </div>
+                <div class="col-xs-5">
+                    <p style="display: block; text-align: center;"> This is the image we will take the style from </p>
+                </div>
+            </div>
+        </div>
         <div class="container" style="margin-bottom: 20px;">
             <div class="row">
                 <div class="col-xs-offset-1 col-xs-4">
@@ -118,7 +127,55 @@ In this model, we used the power of distributed computing to train a very large 
 </br></br>The Results:</br></br>
 After training, the model can take in any image and caption it with decently accurate captions that could pass for a human’s captioning. The network even handles images that challenge a human’s ability.
         </p>
-        <img src="img/img1.jpg">
-        <p style="display: block; text-align: center;"> Output of running recognition on this image: <br> "A dog is running through the ."</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <img src="img/img1.jpg">
+                </div>
+                <div class="col-xs-5">
+                    <img src="img/horse.jpg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <p style="display: block; text-align: center;">"A dog is running through the ."</p>
+                </div>
+                <div class="col-xs-5">
+                    <p style="display: block; text-align: center;">"A horse is running through the grass ."</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <img src="img/jumping.jpg">
+                </div>
+                <div class="col-xs-5">
+                    <img src="img/swimming_dog.jpg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <p style="display: block; text-align: center;">"A young boy is jumping into the air ."</p>
+                </div>
+                <div class="col-xs-5">
+                    <p style="display: block; text-align: center;">"A dog is running through the water ."</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <img src="img/swimming.jpg">
+                </div>
+                <div class="col-xs-5">
+                    <img src="img/woman_jumping.jpg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-5">
+                    <p style="display: block; text-align: center;">"A dog is jumping into the water ."</p>
+                </div>
+                <div class="col-xs-5">
+                    <p style="display: block; text-align: center;">"A man in a white shirt is playing jumping ."</p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
