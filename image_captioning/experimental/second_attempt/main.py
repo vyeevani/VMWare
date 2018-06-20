@@ -3,10 +3,16 @@ import tensorflow as tf
 import numpy as np
 from utils.caption_generator import Caption_Generator
 from utils.test import test
+import argparse
+
+parser = argparse.ArgumentParser(description='Image Captioning software')
+
+parser.add_argument('image_path', metavar = 'image to caption path', type=str, help='path of image to caption')
+args = parser.parse_args()
+image_path = args.image_path
 
 model_path = './models/tensorflow'
 vgg_path = './data/vgg16-20160129.tfmodel'
-image_path = './data/images/img1.jpg'
 
 dim_embed = 256
 dim_hidden = 256
